@@ -15,6 +15,6 @@ cask "neovim-nightly" do
   binary "nvim-macos-#{arch}/bin/nvim"
 
   postflight do
-    system_command "xattr", args: ["-cr", "#{staged_path}"]
+    system_command "xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}"]
   end
 end
